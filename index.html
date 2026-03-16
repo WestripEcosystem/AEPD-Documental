@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planner de Contenidos · GENIS RIVEROLA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Planificador de contenidos · GENIS RIVEROLA (@genis.lawtech)</h1>
+    <p>Organiza publicaciones futuras y guarda guion/caption completo para Instagram, LinkedIn, TikTok y newsletter.</p>
+  </header>
+
+  <main>
+    <section class="panel" id="composer-panel">
+      <h2>Nueva pieza de contenido</h2>
+      <form id="content-form">
+        <div class="grid two">
+          <label>Título / idea principal
+            <input type="text" id="title" required placeholder="Ej: Cómo organizar un viaje sin estrés" />
+          </label>
+          <label>Fecha de publicación
+            <input type="date" id="date" required />
+          </label>
+        </div>
+
+        <div class="grid two">
+          <label>Plataformas
+            <div class="chips" id="platforms">
+              <label><input type="checkbox" value="Instagram">Instagram</label>
+              <label><input type="checkbox" value="LinkedIn">LinkedIn</label>
+              <label><input type="checkbox" value="TikTok">TikTok</label>
+              <label><input type="checkbox" value="Newsletter">Newsletter</label>
+            </div>
+          </label>
+
+          <label>Formato
+            <select id="format" required>
+              <option value="">Selecciona un formato</option>
+              <option>Reel</option>
+              <option>Carrusel</option>
+              <option>Post estático</option>
+              <option>Story</option>
+              <option>Newsletter</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid two">
+          <label>Estado de la pieza
+            <select id="status" required>
+              <option value="idea">Idea</option>
+              <option value="grabando">Grabando</option>
+              <option value="editando">Editando</option>
+              <option value="programado">Programado</option>
+              <option value="publicado">Publicado</option>
+            </select>
+          </label>
+
+          <label>Prioridad
+            <select id="priority" required>
+              <option value="alta">Alta</option>
+              <option value="media" selected>Media</option>
+              <option value="baja">Baja</option>
+            </select>
+          </label>
+        </div>
+
+        <label>Objetivo / CTA
+          <input type="text" id="goal" placeholder="Ej: Llevar tráfico a newsletter y conseguir respuestas" />
+        </label>
+
+        <label>Guion completo
+          <textarea id="script" rows="6" placeholder="Escribe aquí el guion completo que usarás para grabar o redactar."></textarea>
+        </label>
+
+        <label>Caption / texto final
+          <textarea id="caption" rows="5" placeholder="Escribe el caption definitivo, hashtags, enlaces, etc."></textarea>
+        </label>
+
+        <label>Slides del carrusel (uno por línea)
+          <textarea id="slides" rows="6" placeholder="Slide 1: ...&#10;Slide 2: ...&#10;Slide 3: ..."></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit">Guardar en calendario</button>
+          <button type="reset" class="secondary">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" id="calendar-panel">
+      <div class="calendar-header">
+        <h2>Calendario editorial</h2>
+        <div>
+          <button id="prev-month" aria-label="Mes anterior">◀</button>
+          <span id="month-label"></span>
+          <button id="next-month" aria-label="Mes siguiente">▶</button>
+        </div>
+      </div>
+      <div id="calendar-grid" class="calendar-grid"></div>
+      <div id="day-details" class="day-details">
+        <h3>Publicaciones del día</h3>
+        <p>Selecciona un día para ver el detalle.</p>
+      </div>
+    </section>
+
+    <section class="panel" id="pipeline-panel">
+      <h2>Pipeline de ejecución</h2>
+      <div class="grid three pipeline-tools">
+        <label>Filtro por plataforma
+          <select id="platform-filter">
+            <option value="all">Todas</option>
+            <option value="Instagram">Instagram</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Newsletter">Newsletter</option>
+          </select>
+        </label>
+        <label>Vista
+          <select id="range-filter">
+            <option value="all">Todo lo pendiente</option>
+            <option value="week">Esta semana</option>
+          </select>
+        </label>
+        <div class="legend">
+          <span class="pill alta">Alta</span>
+          <span class="pill media">Media</span>
+          <span class="pill baja">Baja</span>
+        </div>
+      </div>
+      <div id="upcoming-list"></div>
+    </section>
+
+    <section class="panel" id="metrics-panel">
+      <h2>Métricas e insights</h2>
+      <p class="small">Marca una pieza como publicada y registra métricas para calcular recomendaciones.</p>
+      <div id="metrics-list"></div>
+      <div id="insights" class="insights"></div>
+    </section>
+  </main>
+
+  <template id="metric-template">
+    <article class="metric-item">
+      <h4></h4>
+      <p class="meta"></p>
+      <div class="grid three">
+        <label>Impresiones <input type="number" min="0" data-field="impressions"></label>
+        <label>Likes <input type="number" min="0" data-field="likes"></label>
+        <label>Comentarios <input type="number" min="0" data-field="comments"></label>
+        <label>Guardados <input type="number" min="0" data-field="saves"></label>
+        <label>Compartidos <input type="number" min="0" data-field="shares"></label>
+        <label>Clics <input type="number" min="0" data-field="clicks"></label>
+      </div>
+      <button class="save-metrics">Guardar métricas</button>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
