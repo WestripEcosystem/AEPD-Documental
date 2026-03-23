@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genís Riverola · Consultoría legal digital</title>
+  <meta name="description" content="Consultoría legal digital para negocios en crecimiento: privacidad, protección de datos, ciberseguridad, compliance tecnológico y derecho digital." />
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 88%, white);
+      border-bottom: 1px solid var(--line);
+      z-index: 100;
+    }
+
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 72px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .2px;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .menu a {
+      text-decoration: none;
+      padding: .35rem .5rem;
+      border-radius: 10px;
+      transition: background-color .2s ease;
+    }
+
+    .menu a:hover,
+    .menu a:focus-visible {
+      background: #eef2ff;
+      outline: none;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .hero {
+      padding: 6rem 0 4.5rem;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .35rem .8rem;
+      background: var(--surface);
+      font-size: .86rem;
+      color: var(--muted);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-top: 1rem;
+      max-width: 14ch;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 2.7vw, 2.3rem);
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      margin-top: 1.2rem;
+    }
+
+    .actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      padding: .78rem 1.1rem;
+      font-weight: 600;
+      min-width: 146px;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn.secondary {
+      border-color: var(--line);
+      background: var(--surface);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .stats {
+      margin-top: 1.8rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .stat-value {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-text {
+      color: var(--muted);
+      margin-top: .4rem;
+      font-size: .95rem;
+    }
+
+    ul {
+      margin: .5rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    li + li { margin-top: .3rem; }
+
+    .services h3,
+    .phases h3 {
+      font-size: 1.05rem;
+      margin-bottom: .75rem;
+    }
+
+    .phases .card {
+      border-left: 4px solid var(--accent);
+    }
+
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.1rem;
+      border-radius: 0 12px 12px 0;
+      background: var(--accent-soft);
+      margin-top: 1rem;
+      color: #134e4a;
+      font-weight: 500;
+    }
+
+    form {
+      display: grid;
+      gap: .9rem;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-top: .35rem;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      padding: .8rem .9rem;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .contact-links {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .contact-links p { margin: .3rem 0; }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .stats,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .hero {
+        padding-top: 4.8rem;
+      }
+
+      .nav .wrap {
+        align-items: flex-start;
+        padding: .85rem 0;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#inicio">Genís Riverola</a>
+      <nav class="menu" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#filosofia">Filosofía</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="wrap">
+        <span class="kicker">Consultoría legal digital · @genis.lawtech</span>
+        <h1>Construyo la estructura legal que tu negocio digital necesita para crecer con seguridad.</h1>
+        <p class="lead">Sin atajos. Sin documentos que nadie lee. Privacidad, protección de datos, ciberseguridad, compliance tecnológico y derecho digital aplicados a la operativa real de autónomos, pymes y negocios en crecimiento.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contacto">Hablemos</a>
+          <a class="btn secondary" href="https://rivconsulting.es" target="_blank" rel="noopener noreferrer">Ver web actual</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="wrap grid grid-2">
+        <article class="card">
+          <h2>Sobre mí</h2>
+          <p>Soy jurista especializado en derecho digital, con formación avanzada en esta área y experiencia práctica en protección de datos, cumplimiento normativo y entorno tecnológico.</p>
+          <p>He trabajado tanto desde la consultoría como dentro de organización, lo que me permite aterrizar la norma al funcionamiento real del negocio y no quedarme en un enfoque puramente teórico o documental.</p>
+          <p>Trabajo con un enfoque claro, directo y práctico: ayudar a que empresas y profesionales entiendan qué riesgos tienen, por qué los tienen y cómo ordenarlos jurídicamente de forma útil.</p>
+        </article>
+        <article class="card">
+          <h3>Especialidad</h3>
+          <p>Privacidad, protección de datos, ciberseguridad, compliance tecnológico y derecho digital.</p>
+          <p>Especializado en adecuación RGPD y LOPDGDD, revisión de procesos, contratos, proveedores tecnológicos, cumplimiento, entornos web y estructura legal digital.</p>
+          <h3 style="margin-top:1.2rem;">Enfoque de trabajo</h3>
+          <ul>
+            <li>Trato directo.</li>
+            <li>Lenguaje claro.</li>
+            <li>Enfoque práctico.</li>
+            <li>Criterio jurídico aplicado al negocio.</li>
+            <li>Rechazo del falso cumplimiento.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="resultados">
+      <div class="wrap">
+        <h2>Resultados</h2>
+        <p class="lead">Ayudo a que el cumplimiento deje de ser un conjunto de textos sueltos y pase a convertirse en una estructura coherente con la operativa real del negocio.</p>
+        <div class="grid grid-2" style="margin-top:1rem;">
+          <article class="card">
+            <h3>Impacto operativo</h3>
+            <ul>
+              <li>Procesos más ordenados.</li>
+              <li>Menos incoherencias entre lo que la empresa hace y lo que documenta.</li>
+              <li>Mayor control sobre datos, herramientas y proveedores.</li>
+              <li>Una base más sólida para crecer con menos fricción jurídica.</li>
+              <li>Decisiones mejor fundamentadas en privacidad, cumplimiento y entorno digital.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Datos de contexto</h3>
+            <p class="stat-text">La estructura legal bien diseñada protege ingresos, retiene clientes y genera confianza.</p>
+            <div class="stats">
+              <div>
+                <div class="stat-value">70%</div>
+                <p class="stat-text">de las organizaciones obtienen beneficios claros al priorizar la protección de datos.</p>
+              </div>
+              <div>
+                <div class="stat-value">75%</div>
+                <p class="stat-text">de los consumidores no compraría a una empresa en la que no confía para proteger sus datos personales.</p>
+              </div>
+              <div>
+                <div class="stat-value">65%</div>
+                <p class="stat-text">de los consumidores deja de comprar tras una brecha de seguridad.</p>
+              </div>
+            </div>
+            <div class="stats">
+              <div>
+                <div class="stat-value">1.6×</div>
+                <p class="stat-text">de retorno genera la inversión en compliance.</p>
+              </div>
+              <div>
+                <div class="stat-value">63%</div>
+                <p class="stat-text">de las empresas se siente poco preparada para cumplir con una normativa de privacidad cambiante.</p>
+              </div>
+              <div>
+                <div class="stat-value">+6.100M $</div>
+                <p class="stat-text">en multas globales por infracciones de privacidad desde 2018.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="services">
+      <div class="wrap">
+        <h2>Servicios</h2>
+        <p class="lead">Servicios orientados a alinear operativa real, herramientas digitales y estructura jurídica.</p>
+
+        <div class="grid grid-2 phases" style="margin-top:1rem;">
+          <article class="card">
+            <h3>Fase 1 · Radiografía estructural</h3>
+            <ul>
+              <li>Mapa real de flujos de datos.</li>
+              <li>Análisis del stack tecnológico.</li>
+              <li>Evaluación contractual.</li>
+              <li>Informe de riesgo estructural.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Fase 2 · Alineación jurídico-operativa</h3>
+            <ul>
+              <li>Documentación personalizada.</li>
+              <li>Regularización contractual.</li>
+              <li>Ajuste de captación y marketing.</li>
+              <li>Revisión de proveedores tecnológicos.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Fase 3 · Gobernanza y control</h3>
+            <ul>
+              <li>Protocolos internos.</li>
+              <li>Formación a equipos.</li>
+              <li>Supervisión periódica.</li>
+              <li>Adaptación normativa continua.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Fase 4 · Revisión de escalado</h3>
+            <ul>
+              <li>Expansión internacional.</li>
+              <li>Nuevas líneas de negocio.</li>
+              <li>Due diligence estructural.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:1rem;">
+          <article class="card">
+            <h3>Protección de datos y privacidad</h3>
+            <p>Consultoría en RGPD y LOPDGDD, auditorías, evaluaciones de impacto, gestión de brechas y servicio de DPD.</p>
+          </article>
+          <article class="card">
+            <h3>Compliance tecnológico</h3>
+            <p>Compliance tecnológico y compliance penal vinculado al entorno digital, con revisión de procesos y proveedores.</p>
+          </article>
+          <article class="card">
+            <h3>Contratos y entorno web</h3>
+            <p>Redacción y revisión de contratos tecnológicos, comerciales y de servicios, además de adecuación legal de webs, formularios y tiendas online.</p>
+          </article>
+          <article class="card">
+            <h3>Automatización e IA</h3>
+            <p>Revisión de perfilado, scoring, decisiones algorítmicas y uso de datasets dentro del entorno digital.</p>
+          </article>
+          <article class="card">
+            <h3>Gobernanza digital</h3>
+            <p>Protocolos internos, formación a equipos y supervisión periódica del cumplimiento.</p>
+          </article>
+          <article class="card">
+            <h3>Formación y charlas</h3>
+            <p>Formación en privacidad, ciberseguridad, identidad digital y uso responsable de la tecnología.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="filosofia">
+      <div class="wrap grid grid-2">
+        <article class="card">
+          <h2>Filosofía de trabajo</h2>
+          <p>Para mí, cumplir no es tener documentos. Es que la operativa, los textos, las decisiones y las herramientas encajen entre sí.</p>
+          <p>Menos papel para cubrir expediente y más estructura legal útil, comprensible y sostenible.</p>
+          <p>El problema no es la norma: es la distancia entre lo que dicen los documentos y lo que hace realmente la empresa.</p>
+          <p>Mi trabajo consiste en cerrar esa brecha y convertir el cumplimiento en una ventaja operativa.</p>
+          <p class="quote">“El objetivo no es cumplir formalmente. Es construir una base jurídica que sostenga el crecimiento de tu negocio.”</p>
+        </article>
+        <article class="card">
+          <h3>Principios</h3>
+          <ul>
+            <li>Estructura, no decoración.</li>
+            <li>Sin cumplimiento exprés ni promesas vacías.</li>
+            <li>Orden jurídico alineado a la operativa real.</li>
+            <li>Decisiones con criterio, claridad y utilidad real.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap grid grid-2">
+        <article class="card">
+          <h2>Contacto</h2>
+          <p>Si tu empresa opera en digital y necesita estructura legal real, hablamos el mismo idioma.</p>
+          <form>
+            <label>
+              Nombre
+              <input type="text" name="nombre" autocomplete="name" required />
+            </label>
+            <label>
+              Correo electrónico
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Mensaje
+              <textarea name="mensaje" required></textarea>
+            </label>
+            <button class="btn primary" type="submit">Enviar</button>
+          </form>
+        </article>
+        <article class="card">
+          <h3>Datos de contacto</h3>
+          <div class="contact-links">
+            <p><strong>Web:</strong> <a href="https://rivconsulting.es" target="_blank" rel="noopener noreferrer">rivconsulting.es</a></p>
+            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/genis.lawtech" target="_blank" rel="noopener noreferrer">@genis.lawtech</a></p>
+            <p><strong>LinkedIn:</strong> Genís Riverola</p>
+            <p><strong>Correo:</strong> <a href="mailto:hola@genisriverola.com">hola@genisriverola.com</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Genís Riverola · Consultoría legal digital.</div>
+  </footer>
+</body>
+</html>
